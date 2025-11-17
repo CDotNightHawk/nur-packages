@@ -14,6 +14,7 @@ let
       "modules"
       "hmModules"
     ];
+  isAlias = n: false;
   isDerivation = p: isAttrs p && p ? type && p.type == "derivation";
   hasKnownVulns = p: p.meta ? knownVulnerabilities && (length p.meta.knownVulnerabilities != 0);
   strikeIfKnownVulns = p: text: if hasKnownVulns p then "~~${text}~~" else text;
